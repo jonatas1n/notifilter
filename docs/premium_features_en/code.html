@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifilter Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#3f4759",
+                      "surface-container-high": "#e7e8e9",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed-dim": "#bfc6dd",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#d9dadb",
+                      "on-surface-variant": "#454651",
+                      "secondary-fixed": "#dbe2fa",
+                      "surface-bright": "#f8f9fa",
+                      "primary": "#142175",
+                      "outline": "#767682",
+                      "primary-fixed": "#dfe0ff",
+                      "inverse-primary": "#bcc3ff",
+                      "primary-container": "#2e3a8c",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#a8cfbc",
+                      "on-surface": "#191c1d",
+                      "on-primary-container": "#9ea9ff",
+                      "on-tertiary-container": "#90b7a4",
+                      "surface-container-low": "#f3f4f5",
+                      "secondary": "#575e72",
+                      "surface-variant": "#e1e3e4",
+                      "on-secondary-fixed": "#141b2c",
+                      "tertiary-container": "#25493a",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#c3ecd7",
+                      "on-error": "#ffffff",
+                      "surface": "#f8f9fa",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#4b57aa",
+                      "secondary-container": "#dbe2fa",
+                      "on-background": "#191c1d",
+                      "background": "#f8f9fa",
+                      "primary-fixed-dim": "#bcc3ff",
+                      "inverse-surface": "#2e3132",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-secondary-container": "#5d6478",
+                      "on-primary-fixed-variant": "#333f91",
+                      "surface-container": "#edeeef",
+                      "on-tertiary-fixed-variant": "#294e3f",
+                      "tertiary": "#0c3225",
+                      "on-primary-fixed": "#000d60",
+                      "outline-variant": "#c6c5d3",
+                      "inverse-on-surface": "#f0f1f2",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed": "#002115"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "unit": "4px",
+                      "margin-mobile": "16px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "gutter": "16px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter", "sans-serif"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter", "sans-serif"
+                      ],
+                      "label-sm": [
+                              "Inter", "sans-serif"
+                      ],
+                      "headline-md": [
+                              "Inter", "sans-serif"
+                      ],
+                      "label-caps": [
+                              "Inter", "sans-serif"
+                      ],
+                      "body-lg": [
+                              "Inter", "sans-serif"
+                      ],
+                      "headline-lg": [
+                              "Inter", "sans-serif"
+                      ]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-sm h-full antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-surface group/design-root overflow-x-hidden">
+<!-- Header for Focused View (Navigation Excluded as per rules for upsell/subscription flow) -->
+<header class="flex items-center bg-surface p-4 pb-2 justify-between border-b border-surface-variant sticky top-0 z-50">
+<button aria-label="Go back" class="text-on-surface flex size-12 shrink-0 items-center justify-center hover:bg-surface-container rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Premium Features</h2>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<div class="@container w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+<div class="relative overflow-hidden flex min-h-[480px] flex-col gap-6 rounded-2xl items-center justify-center p-8 sm:p-12" data-alt="A serene, minimalist workspace bathed in soft, natural morning light. The scene features a sleek modern laptop on a clean wooden desk, with a gentle blur of green plants in the background. The lighting is high-key and bright, evoking a sense of calm, focus, and digital zen. Subtle hints of deep blue (branding color) are present in the decor elements." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbZqoC0_pB7snH6kde9BBUDZRl8KVrjWB0gYepCJ2VHEdTGPZeWvQJeJj69KMoke5v-byB9qbhlnn-X2OL9GTTdJKJEuaIiUOct_BJS0luemD6S8ct0hTDHXNEJiU9dRqtQckle3igq1Xf6HpWwqwCu2fFcKCfh2HspDufaQZZUMgjMG79gho4mlB3SoAT7HUZvA8FXpumP14Vf83_r4Fao-_0GuoemnmCR8KSnhrrom3B5rzwG8OzzpBf6WLqYt-yMKgqqovbW-vE')">
+<!-- Overlay gradient for text readability -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60 rounded-2xl"></div>
+<div class="relative flex flex-col gap-4 text-center max-w-3xl z-10">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl lg:text-6xl drop-shadow-md">
+                            Unlock Absolute Focus
+                        </h1>
+<h2 class="text-white text-base md:text-lg font-normal leading-relaxed drop-shadow-sm opacity-90">
+                            Elevate your 'Digital Zen' experience with advanced AI. Notifilter Premium understands the context of your messages and filters noise like never before.
+                        </h2>
+</div>
+<button class="relative z-10 flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 md:h-14 px-8 bg-primary hover:bg-primary-container text-on-primary font-bold leading-normal tracking-wide transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0">
+<span class="truncate">Upgrade to Premium</span>
+</button>
+<p class="relative z-10 text-white/80 text-sm font-medium">Only $4.99/month after trial.</p>
+</div>
+</div>
+<!-- Features Section -->
+<div class="flex flex-col gap-10 px-4 py-12 sm:py-16 md:py-24 max-w-7xl mx-auto @container">
+<div class="flex flex-col gap-4 items-center text-center max-w-3xl mx-auto">
+<h2 class="text-on-surface text-[32px] md:text-4xl font-black leading-tight tracking-[-0.033em]">
+                        Premium Features
+                    </h2>
+<p class="text-on-surface-variant text-base md:text-lg font-normal leading-relaxed">
+                        Take your focus to the next level with these exclusive tools designed to protect your attention and streamline your digital life.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-0 mt-8">
+<!-- Feature 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-surface-variant bg-surface-container-lowest p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-container text-on-primary-container mb-2">
+<span class="material-symbols-outlined" data-icon="brain" data-size="24px" data-weight="regular">grain</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-on-surface text-lg font-bold leading-tight">Contextual AI Filtering</h3>
+<p class="text-on-surface-variant text-sm font-normal leading-relaxed">
+                                Our AI doesn't just read keywords; it understands urgency and context. A message from your boss about an 'urgent project' gets through, while workplace gossip is silenced.
+                            </p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-surface-variant bg-surface-container-lowest p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-tertiary-container text-on-tertiary-container mb-2">
+<span class="material-symbols-outlined" data-icon="forum" data-size="24px" data-weight="regular">forum</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-on-surface text-lg font-bold leading-tight">Smart Auto-Replies</h3>
+<p class="text-on-surface-variant text-sm font-normal leading-relaxed">
+                                Let AI handle minor interruptions. Configure smart replies that adapt to the received message's context, keeping you focused and people informed.
+                            </p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-surface-variant bg-surface-container-lowest p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary-container text-on-secondary-container mb-2">
+<span class="material-symbols-outlined" data-icon="calendar_month" data-size="24px" data-weight="regular">calendar_month</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-on-surface text-lg font-bold leading-tight">Deep Scheduling</h3>
+<p class="text-on-surface-variant text-sm font-normal leading-relaxed">
+                                Sync with your calendar. Notifilter Premium activates 'Focus Mode' automatically during important meetings or deep work hours.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing Card Section -->
+<div class="bg-surface-container-low py-16 px-4">
+<div class="max-w-md mx-auto">
+<div class="flex flex-col gap-6 rounded-2xl border-2 border-primary-fixed bg-surface-container-lowest p-8 shadow-xl relative overflow-hidden">
+<!-- Decorative top accent -->
+<div class="absolute top-0 left-0 w-full h-2 bg-primary"></div>
+<div class="flex flex-col gap-2 text-center">
+<span class="inline-block px-3 py-1 bg-primary-container text-on-primary-container text-xs font-bold rounded-full w-max mx-auto mb-2 uppercase tracking-wider">Premium Plan</span>
+<p class="flex items-baseline justify-center gap-1 text-on-surface mt-4">
+<span class="text-5xl font-black leading-tight tracking-[-0.033em]">$4.99</span>
+<span class="text-on-surface-variant text-base font-medium">/month</span>
+</p>
+<p class="text-sm text-on-surface-variant">Billed monthly. Cancel anytime.</p>
+</div>
+<div class="w-full h-px bg-surface-variant my-4"></div>
+<div class="flex flex-col gap-4">
+<h4 class="font-semibold text-on-surface mb-2">Everything in Free, plus:</h4>
+<div class="text-[14px] font-medium leading-normal flex items-start gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="check_circle">check_circle</span>
+<span>Contextual AI Filtering</span>
+</div>
+<div class="text-[14px] font-medium leading-normal flex items-start gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="check_circle">check_circle</span>
+<span>Smart Auto-Replies</span>
+</div>
+<div class="text-[14px] font-medium leading-normal flex items-start gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="check_circle">check_circle</span>
+<span>Deep Scheduling</span>
+</div>
+<div class="text-[14px] font-medium leading-normal flex items-start gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="check_circle">check_circle</span>
+<span>Priority Customer Support</span>
+</div>
+</div>
+<button class="mt-6 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary hover:bg-primary-container text-on-primary text-base font-bold leading-normal transition-colors shadow-md">
+<span class="truncate">Take Control Now</span>
+</button>
+</div>
+</div>
+</div>
+<div class="h-10 bg-surface"></div>
+</main>
+</div>
+</body></html>
