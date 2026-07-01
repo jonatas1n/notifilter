@@ -1,8 +1,10 @@
-# Notifilter
+# Prio
 
-Notifilter is an Android notification filter built with Flutter. It intercepts status bar notifications through a native `NotificationListenerService`, applies keyword, schedule, condensed-inbox, and emergency-insistence rules on the Dart side, and keeps a local inbox of held alerts.
+Prio is an Android notification filter built with Flutter. It intercepts status bar notifications through a native `NotificationListenerService`, applies keyword, schedule, condensed-inbox, and emergency-insistence rules on the Dart side, and keeps a local inbox of held alerts.
 
-**Brand:** launcher and in-app logo use the **leaf emblem** (three indigo leaves + anchor circle, `#2E3A8C`) from `docs/notifilter_logo_rounded/` and `assets/icon/notifilter_logo.svg`.
+**Brand:** launcher label and in-app copy use **Prio**. The logo is the **brightness/sun emblem** (cyan `#46BBC2` on a dark `#0B0B0B` badge, or green `#436849` on light) defined in `assets/icon/prio_logo.svg` and rendered by `lib/widgets/prio_logo.dart`.
+
+**Android identity:** `applicationId` is `com.jotadevsol.prio` (must match the `package_name` in `android/app/google-services.json` for Firebase). Kotlin sources live under package `com.prio.prio` with Gradle `namespace = "com.prio.prio"`. The Firebase project itself stays `notifilter-76e70` (server-side id; renaming it would break the existing Firebase app).
 
 ## Requirements
 
@@ -34,14 +36,14 @@ Run `make` or `make help` for the full list. Common workflows:
 
 | Target | Description |
 | --- | --- |
-| `make apk` | **Slim release** for phones (arm64-v8a) → `./notifilter.apk` (~8 MB) |
-| `make apk-emulator` | Release x86_64 for AVD → `./notifilter-emulator.apk` |
-| `make apk-debug` | Debug APK (larger, JIT) → `./notifilter-debug.apk` |
-| `make apk-release` | Universal release (arm64 + x86_64) → `./notifilter-release-universal.apk` |
+| `make apk` | **Slim release** for phones (arm64-v8a) → `./prio.apk` (~8 MB) |
+| `make apk-emulator` | Release x86_64 for AVD → `./prio-emulator.apk` |
+| `make apk-debug` | Debug APK (larger, JIT) → `./prio-debug.apk` |
+| `make apk-release` | Universal release (arm64 + x86_64) → `./prio-release-universal.apk` |
 | `make emulator` | Launch the first available Android emulator |
 | `make run` | Dev run with hot reload (preferred on emulator) |
-| `make install` | `adb install -r ./notifilter.apk` (arm64 device) |
-| `make install-emulator` | Build & install `./notifilter-emulator.apk` on x86_64 AVD |
+| `make install` | `adb install -r ./prio.apk` (arm64 device) |
+| `make install-emulator` | Build & install `./prio-emulator.apk` on x86_64 AVD |
 | `make test` / `make analyze` | Tests and static analysis |
 
 Typical **phone**: `make apk` → `make install`. **Emulator**: `make emulator` → `make run` (or `make install-emulator` for a release APK on AVD).
@@ -50,9 +52,9 @@ Native builds target **arm64-v8a** (phones) and **x86_64** (emulators) via Flutt
 
 ## Grant notification access
 
-1. Install and open Notifilter.
+1. Install and open **Prio**.
 2. On onboarding (or from the inbox banner), tap **Open notification access settings**.
-3. Enable **Notifilter** in the system Notification access screen.
+3. Enable **Prio** in the system Notification access screen.
 4. Return to the app and tap **Continuar para o app**.
 
 Without this permission the native listener cannot receive or cancel notifications.
@@ -61,9 +63,9 @@ Without this permission the native listener cannot receive or cancel notificatio
 
 | Layer | Responsibility |
 | --- | --- |
-| **Kotlin** (`NotifilterNotificationListenerService`) | Receives `StatusBarNotification`s, streams JSON to Flutter, cancels held notifications |
-| **MethodChannel** `com.notifilter/notifications` | Access check, open settings, cancel |
-| **EventChannel** `com.notifilter/notification_events` | Posted/removed notification payloads |
+| **Kotlin** (`PrioNotificationListenerService`) | Receives `StatusBarNotification`s, streams JSON to Flutter, cancels held notifications |
+| **MethodChannel** `com.prio/notifications` | Access check, open settings, cancel (channel id kept in sync with Kotlin namespace) |
+| **EventChannel** `com.prio/notification_events` | Posted/removed notification payloads |
 | **Dart** | `NotificationOrchestratorService` → `NotificationPolicyEngine` → inbox persistence |
 | **Persistence** | `sqflite` inbox, `shared_preferences` for rules/schedules/settings |
 | **State** | `flutter_riverpod` under `lib/providers/` |
@@ -99,8 +101,8 @@ Esta versão entrega **apenas o plano gratuito**. O código Dart de premium (LLM
 
 **Plumbing nativo (já presente, não usado pela app free):**
 
-- **`NotifilterNotificationListenerService.sendReplyToNotification`** — monta `RemoteInput`, preenche `Bundle`, envia `PendingIntent` da `Notification.Action`.
-- **`NotificationBridgePlugin`** — método `sendNotificationReply` no MethodChannel `com.notifilter/notifications` (parâmetros: `key`, `actionIndex`, `remoteInputKey`, `text`).
+- **`PrioNotificationListenerService.sendReplyToNotification`** — monta `RemoteInput`, preenche `Bundle`, envia `PendingIntent` da `Notification.Action`.
+- **`NotificationBridgePlugin`** — método `sendNotificationReply` no MethodChannel `com.prio/notifications` (parâmetros: `key`, `actionIndex`, `remoteInputKey`, `text`).
 - O payload de eventos já inclui `actions` / `remoteInputs` em JSON (`IncomingNotificationAction` em Dart).
 
 **Onde encaixa no Dart (a implementar com premium):**
@@ -123,9 +125,9 @@ lib/
   repositories/  sqflite + shared_preferences
   providers/     Riverpod wiring
   screens/       inbox, rules, schedule, emergency, onboarding
-  widgets/       notifilter_logo (leaf SVG), time_window_editor
-assets/icon/     notifilter_logo.svg + app_icon.png for launcher
-android/         NotificationListenerService + platform channels
+  widgets/       prio_logo (leaf SVG), time_window_editor
+assets/icon/     prio_logo.svg + app_icon.png for launcher
+android/         PrioNotificationListenerService + platform channels
 test/            business logic tests
 Makefile         apk, run, emulator, install
 ```
@@ -145,7 +147,7 @@ Or: `flutter test` / `flutter analyze`.
 make apk
 ```
 
-Output: **`notifilter.apk`** at the project root — **release, arm64-v8a only** (AOT, R8 minify, ~8 MB vs ~100 MB+ debug fat APK).
+Output: **`prio.apk`** at the project root — **release, arm64-v8a only** (AOT, R8 minify, ~8 MB vs ~100 MB+ debug fat APK).
 
 - Physical phone (arm64): `make install`
 - Android emulator (x86_64): `make run` for development, or `make install-emulator` for a release APK

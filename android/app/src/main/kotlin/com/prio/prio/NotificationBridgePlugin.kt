@@ -1,4 +1,4 @@
-package com.notifilter.notifilter
+package com.prio.prio
 
 import android.content.ComponentName
 import android.content.Context
@@ -105,7 +105,7 @@ class NotificationBridgePlugin(private val context: Context) :
             "enabled_notification_listeners",
         ) ?: return false
 
-        val componentName = ComponentName(context, NotifilterNotificationListenerService::class.java)
+        val componentName = ComponentName(context, PrioNotificationListenerService::class.java)
         return enabledListeners.contains(componentName.flattenToString(), ignoreCase = true)
     }
 
@@ -116,7 +116,7 @@ class NotificationBridgePlugin(private val context: Context) :
     }
 
     companion object {
-        const val METHOD_CHANNEL_NAME = "com.notifilter/notifications"
-        const val EVENT_CHANNEL_NAME = "com.notifilter/notification_events"
+        const val METHOD_CHANNEL_NAME = "com.prio/notifications"
+        const val EVENT_CHANNEL_NAME = "com.prio/notification_events"
     }
 }

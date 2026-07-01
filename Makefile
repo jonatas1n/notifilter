@@ -2,31 +2,37 @@ FLUTTER ?= /Applications/flutter/bin/flutter
 ADB ?= adb
 APK_DEBUG := build/app/outputs/flutter-apk/app-debug.apk
 APK_RELEASE := build/app/outputs/flutter-apk/app-release.apk
-ROOT_APK := notifilter.apk
-ROOT_APK_DEBUG := notifilter-debug.apk
-ROOT_APK_EMULATOR := notifilter-emulator.apk
-ROOT_APK_RELEASE_ALL := notifilter-release-universal.apk
+ROOT_APK := prio.apk
+ROOT_APK_DEBUG := prio-debug.apk
+ROOT_APK_EMULATOR := prio-emulator.apk
+
+# Firebase App Distribution. App ID = mobilesdk_app_id from google-services.json.
+# Uses the installed `firebase` CLI when present, otherwise falls back to npx.
+FIREBASE := $(shell command -v firebase 2>/dev/null || echo "npx --yes firebase-tools")
+FIREBASE_APP_ID ?= 1:408351892647:android:3a0f31b8b22e888ee3e782
+FIREBASE_TESTERS ?= jonatasgeek@gmail.com
+FIREBASE_RELEASE_NOTES ?= Prio test build
 
 # Only arm64 (phones) and x64 (emulators) — no legacy x86 or armeabi-v7a.
 PLATFORM_PHONE := android-arm64
 PLATFORM_EMULATOR := android-x64
 PLATFORMS_BOTH := android-arm64,android-x64
 
-.PHONY: help pub-get analyze test apk apk-debug apk-emulator apk-release run emulator install install-emulator devices clean
+.PHONY: help pub-get analyze test apk apk-debug apk-emulator firebase-distribute run emulator install install-emulator devices clean
 
 help:
-	@echo "Notifilter — make targets"
+	@echo "Prio — make targets"
 	@echo ""
 	@echo "  make pub-get          flutter pub get"
 	@echo "  make analyze          flutter analyze"
 	@echo "  make test             flutter test"
-	@echo "  make apk              Release arm64 -> ./$(ROOT_APK) (~8 MB, real phones)"
+	@echo "  make apk              Release arm64+x64 universal -> ./$(ROOT_APK) (phones + emulators)"
 	@echo "  make apk-emulator     Release x86_64 -> ./$(ROOT_APK_EMULATOR) (AVD install)"
 	@echo "  make apk-debug        Debug arm64+x64 -> ./$(ROOT_APK_DEBUG) (dev only, smaller than old fat debug)"
-	@echo "  make apk-release      Release arm64+x64 universal -> ./$(ROOT_APK_RELEASE_ALL)"
+	@echo "  make firebase-distribute  Build ./$(ROOT_APK) and upload to Firebase App Distribution ($(FIREBASE_TESTERS))"
 	@echo "  make run              flutter run -d android (emulator/dev; hot reload)"
 	@echo "  make emulator         Launch first available Android emulator"
-	@echo "  make install          adb install ./$(ROOT_APK) (arm64 device)"
+	@echo "  make install          adb install ./$(ROOT_APK) (phone or emulator)"
 	@echo "  make install-emulator adb install ./$(ROOT_APK_EMULATOR) (x86_64 AVD)"
 	@echo "  make devices          List flutter devices"
 	@echo "  make clean            flutter clean"
@@ -41,10 +47,10 @@ test:
 	$(FLUTTER) test
 
 apk: pub-get
-	$(FLUTTER) build apk --release --target-platform $(PLATFORM_PHONE)
+	$(FLUTTER) build apk --release --target-platform $(PLATFORMS_BOTH)
 	cp $(APK_RELEASE) $(ROOT_APK)
 	@ls -lh $(ROOT_APK)
-	@echo "Phone APK (arm64-v8a release): $(CURDIR)/$(ROOT_APK)"
+	@echo "Universal release APK (arm64 + x86_64): $(CURDIR)/$(ROOT_APK)"
 
 apk-emulator: pub-get
 	$(FLUTTER) build apk --release --target-platform $(PLATFORM_EMULATOR)
@@ -58,11 +64,15 @@ apk-debug: pub-get
 	@ls -lh $(ROOT_APK_DEBUG)
 	@echo "Debug APK: $(CURDIR)/$(ROOT_APK_DEBUG)"
 
-apk-release: pub-get
-	$(FLUTTER) build apk --release --target-platform $(PLATFORMS_BOTH)
-	cp $(APK_RELEASE) $(ROOT_APK_RELEASE_ALL)
-	@ls -lh $(ROOT_APK_RELEASE_ALL)
-	@echo "Universal release APK (arm64 + x86_64): $(CURDIR)/$(ROOT_APK_RELEASE_ALL)"
+# Build the test APK and ship it to Firebase App Distribution.
+# Auth: run `firebase login` once, or export GOOGLE_APPLICATION_CREDENTIALS
+# (service account JSON with the Firebase App Distribution Admin role).
+firebase-distribute: apk
+	$(FIREBASE) appdistribution:distribute "$(ROOT_APK)" \
+		--app "$(FIREBASE_APP_ID)" \
+		--testers "$(FIREBASE_TESTERS)" \
+		--release-notes "$(FIREBASE_RELEASE_NOTES)"
+	@echo "Distributed $(ROOT_APK) to: $(FIREBASE_TESTERS)"
 
 run: pub-get
 	$(FLUTTER) run -d android

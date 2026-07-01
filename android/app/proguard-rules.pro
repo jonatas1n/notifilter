@@ -5,8 +5,8 @@
 -if class * implements io.flutter.embedding.engine.plugins.FlutterPlugin
 -keep,allowshrinking,allowobfuscation class <1>
 
-# Notifilter native notification listener + platform bridge
--keep class com.notifilter.notifilter.** { *; }
+# Prio native notification listener + platform bridge
+-keep class com.prio.prio.** { *; }
 -keep class * extends android.service.notification.NotificationListenerService { *; }
 
 # MethodChannel / EventChannel handlers

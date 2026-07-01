@@ -34,11 +34,11 @@ migrate_working_dir/
 /build/
 
 # Root APK copies from make apk / make apk-release
-/notifilter.apk
-/notifilter-debug.apk
-/notifilter-emulator.apk
-/notifilter-release-universal.apk
-/notifilter-release.apk
+/prio.apk
+/prio-debug.apk
+/prio-emulator.apk
+/prio-release-universal.apk
+/prio-release.apk
 
 # Symbolication related
 app.*.symbols

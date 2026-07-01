@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:notifilter/models/filter_match_type.dart';
-import 'package:notifilter/models/filter_rule.dart';
-import 'package:notifilter/models/filter_rule_action.dart';
-import 'package:notifilter/models/incoming_notification.dart';
+import 'package:prio/models/filter_match_type.dart';
+import 'package:prio/models/filter_rule.dart';
+import 'package:prio/models/filter_rule_action.dart';
+import 'package:prio/models/incoming_notification.dart';
 
-import 'package:notifilter/utils/filter_engine.dart';
+import 'package:prio/utils/filter_engine.dart';
 
 void main() {
   group('filter_engine', () {

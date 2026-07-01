@@ -1,8 +1,8 @@
-package com.notifilter.notifilter
+package com.prio.prio
 
 import io.flutter.plugin.common.EventChannel
 
 object NotificationBridgeHolder {
     var eventSink: EventChannel.EventSink? = null
-    var listenerService: NotifilterNotificationListenerService? = null
+    var listenerService: PrioNotificationListenerService? = null
 }

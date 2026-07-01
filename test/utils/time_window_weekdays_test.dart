@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:notifilter/utils/time_window_weekdays.dart';
+import 'package:prio/utils/time_window_weekdays.dart';
 
 void main() {
   test('mergeWeekdaySelection adds selected weekday when missing', () {

@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:notifilter/models/emergency_settings.dart';
-import 'package:notifilter/models/incoming_notification.dart';
-import 'package:notifilter/utils/emergency_insistence_detector.dart';
+import 'package:prio/models/emergency_settings.dart';
+import 'package:prio/models/incoming_notification.dart';
+import 'package:prio/utils/emergency_insistence_detector.dart';
 
 void main() {
   group('emergency_insistence_detector', () {

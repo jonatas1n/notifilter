@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:notifilter/models/time_window.dart';
-import 'package:notifilter/utils/schedule_evaluator.dart';
+import 'package:prio/models/time_window.dart';
+import 'package:prio/utils/schedule_evaluator.dart';
 
 void main() {
   group('schedule_evaluator', () {

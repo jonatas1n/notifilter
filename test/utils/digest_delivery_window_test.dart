@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:notifilter/models/time_window.dart';
-import 'package:notifilter/utils/digest_window_evaluator.dart';
+import 'package:prio/models/time_window.dart';
+import 'package:prio/utils/digest_window_evaluator.dart';
 
 void main() {
   group('digest delivery window detection', () {

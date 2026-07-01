@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:notifilter/models/inbox_delivery_state.dart';
-import 'package:notifilter/models/stored_notification.dart';
-import 'package:notifilter/utils/notification_grouper.dart';
+import 'package:prio/models/inbox_delivery_state.dart';
+import 'package:prio/models/stored_notification.dart';
+import 'package:prio/utils/notification_grouper.dart';
 
 StoredNotification _item({
   required String key,

@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/theme/serene_focus_spacing.dart';
 import 'core/theme/serene_focus_theme.dart';
 import 'providers/app_providers.dart';
 import 'screens/home_shell_screen.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/welcome_screen.dart';
 import 'utils/app_flow_phase.dart';
+import 'widgets/prio_logo.dart';
 
-class NotifilterApp extends ConsumerStatefulWidget {
-  const NotifilterApp({super.key});
+class PrioApp extends ConsumerStatefulWidget {
+  const PrioApp({super.key});
 
   @override
-  ConsumerState<NotifilterApp> createState() => _NotifilterAppState();
+  ConsumerState<PrioApp> createState() => _PrioAppState();
 }
 
-class _NotifilterAppState extends ConsumerState<NotifilterApp>
+class _PrioAppState extends ConsumerState<PrioApp>
     with WidgetsBindingObserver {
   @override
   void initState() {
@@ -68,7 +70,7 @@ class _NotifilterAppState extends ConsumerState<NotifilterApp>
 
         return MaterialApp(
           key: ValueKey(appFlowPhaseKey(phase)),
-          title: 'Notifilter',
+          title: 'Prio',
           theme: SereneFocusTheme.light(),
           home: home,
         );
@@ -83,7 +85,20 @@ class _SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: CircularProgressIndicator()),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            PrioLogo(size: 112, badge: true),
+            SizedBox(height: SereneFocusSpacing.xl),
+            SizedBox(
+              width: 24,
+              height: 24,
+              child: CircularProgressIndicator(strokeWidth: 2.5),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:notifilter/models/app_settings.dart';
-import 'package:notifilter/utils/app_flow_phase.dart';
+import 'package:prio/models/app_settings.dart';
+import 'package:prio/utils/app_flow_phase.dart';
 
 void main() {
   test('appFlowPhaseForSettings follows welcome then onboarding then main', () {

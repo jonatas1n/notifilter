@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/theme/serene_focus_spacing.dart';
 import '../providers/app_providers.dart';
-import '../widgets/notifilter_logo.dart';
+import '../widgets/prio_logo.dart';
 import 'login_screen.dart';
 import 'sign_up_screen.dart';
 
@@ -20,14 +20,16 @@ class WelcomeScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Spacer(),
-              const NotifilterLogo(size: 96),
+              const Center(child: PrioLogo(size: 112, badge: true)),
               const SizedBox(height: SereneFocusSpacing.lg),
               Text(
-                'Notifilter',
+                'Prio',
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               Text(
                 'Digital Zen para as suas notificações',
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const Spacer(),

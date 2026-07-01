@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "408351892647",
+    "project_id": "notifilter-76e70",
+    "storage_bucket": "notifilter-76e70.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408351892647:android:3a0f31b8b22e888ee3e782",
+        "android_client_info": {
+          "package_name": "com.jotadevsol.prio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTbptm12DqrWzYssjB-h46LIII6Z7HRys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

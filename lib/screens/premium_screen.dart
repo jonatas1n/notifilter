@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/theme/serene_focus_colors.dart';
 import '../core/theme/serene_focus_spacing.dart';
-import '../widgets/notifilter_logo.dart';
+import '../widgets/prio_logo.dart';
 import '../widgets/serene/serene_card.dart';
 
 /// Premium UI scaffold — funcionalidade não implementada (ver README).
@@ -22,7 +22,7 @@ class PremiumScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(SereneFocusSpacing.marginMobile),
         children: [
-          const Center(child: NotifilterLogo(size: 88)),
+          const Center(child: PrioLogo(size: 88)),
           const SizedBox(height: SereneFocusSpacing.lg),
           Text(
             'Unlock Absolute Focus',

@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:notifilter/models/contact_importance_level.dart';
-import 'package:notifilter/models/notification_decision.dart';
-import 'package:notifilter/utils/contact_importance_policy.dart';
+import 'package:prio/models/contact_importance_level.dart';
+import 'package:prio/models/notification_decision.dart';
+import 'package:prio/utils/contact_importance_policy.dart';
 
 void main() {
   group('contact_importance_policy', () {

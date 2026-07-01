@@ -1,4 +1,5 @@
+/// Platform channel ids — must match [NotificationBridgePlugin] in Kotlin.
 class NotificationChannelNames {
-  static const String methodChannel = 'com.notifilter/notifications';
-  static const String eventChannel = 'com.notifilter/notification_events';
+  static const String methodChannel = 'com.prio/notifications';
+  static const String eventChannel = 'com.prio/notification_events';
 }

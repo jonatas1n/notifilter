@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/theme/serene_focus_spacing.dart';
 import '../providers/app_providers.dart';
-import '../widgets/notifilter_logo.dart';
+import '../widgets/prio_logo.dart';
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
 
@@ -31,7 +31,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const NotifilterLogo(size: 72),
+            const PrioLogo(size: 72),
             const SizedBox(height: SereneFocusSpacing.lg),
             TextField(
               controller: _nameController,

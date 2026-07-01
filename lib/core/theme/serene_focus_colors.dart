@@ -35,4 +35,10 @@ abstract final class SereneFocusColors {
 
   static const Color error = Color(0xFFBA1A1A);
   static const Color errorContainer = Color(0xFFFFDAD6);
+
+  /// Prio brand mark colors.
+  static const Color brandMark = Color(0xFF436849);
+  static const Color brandMarkOnDark = Color(0xFF46BBC2);
+  static const Color brandBackdropDark = Color(0xFF0B0B0B);
+  static const Color brandBackdropLight = Color(0xFFF6F9EF);
 }

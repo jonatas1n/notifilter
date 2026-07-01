@@ -1,16 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:notifilter/models/app_settings.dart';
-import 'package:notifilter/models/contact_importance_level.dart';
-import 'package:notifilter/models/emergency_settings.dart';
-import 'package:notifilter/models/filter_match_type.dart';
-import 'package:notifilter/models/filter_rule.dart';
-import 'package:notifilter/models/filter_rule_action.dart';
-import 'package:notifilter/models/incoming_notification.dart';
-import 'package:notifilter/models/notification_decision.dart';
-import 'package:notifilter/models/time_window.dart';
-import 'package:notifilter/services/notification_policy_engine.dart';
-import 'package:notifilter/utils/emergency_insistence_detector.dart';
+import 'package:prio/models/app_settings.dart';
+import 'package:prio/models/contact_importance_level.dart';
+import 'package:prio/models/emergency_settings.dart';
+import 'package:prio/models/filter_match_type.dart';
+import 'package:prio/models/filter_rule.dart';
+import 'package:prio/models/filter_rule_action.dart';
+import 'package:prio/models/incoming_notification.dart';
+import 'package:prio/models/notification_decision.dart';
+import 'package:prio/models/time_window.dart';
+import 'package:prio/services/notification_policy_engine.dart';
+import 'package:prio/utils/emergency_insistence_detector.dart';
 
 void main() {
   group('NotificationPolicyEngine', () {

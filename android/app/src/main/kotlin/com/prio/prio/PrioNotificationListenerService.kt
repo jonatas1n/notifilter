@@ -1,4 +1,4 @@
-package com.notifilter.notifilter
+package com.prio.prio
 
 import android.app.Notification
 import android.app.RemoteInput
@@ -11,7 +11,7 @@ import android.util.Log
 import org.json.JSONArray
 import org.json.JSONObject
 
-class NotifilterNotificationListenerService : NotificationListenerService() {
+class PrioNotificationListenerService : NotificationListenerService() {
 
     override fun onListenerConnected() {
         super.onListenerConnected()
@@ -124,6 +124,6 @@ class NotifilterNotificationListenerService : NotificationListenerService() {
     }
 
     companion object {
-        private const val TAG = "NotifilterNLS"
+        private const val TAG = "PrioNLS"
     }
 }

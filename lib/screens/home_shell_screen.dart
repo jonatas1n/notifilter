@@ -4,7 +4,7 @@ import 'dashboard_screen.dart';
 import 'filters_screen.dart';
 import 'schedule_screen.dart';
 import 'settings_screen.dart';
-import '../widgets/notifilter_logo.dart';
+import '../widgets/prio_logo.dart';
 
 class HomeShellScreen extends StatefulWidget {
   const HomeShellScreen({super.key});
@@ -27,7 +27,7 @@ class _HomeShellScreenState extends State<HomeShellScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const NotifilterLogo(size: 32, showLabel: true),
+        title: const PrioLogo(size: 32, showLabel: true),
       ),
       body: IndexedStack(
         index: _selectedIndex,

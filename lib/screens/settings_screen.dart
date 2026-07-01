@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/theme/serene_focus_spacing.dart';
 import '../providers/app_providers.dart';
-import '../widgets/notifilter_logo.dart';
+import '../widgets/prio_logo.dart';
 import 'premium_screen.dart';
 import 'welcome_screen.dart';
 
@@ -17,7 +17,7 @@ class SettingsScreen extends ConsumerWidget {
     return ListView(
       padding: const EdgeInsets.all(SereneFocusSpacing.marginMobile),
       children: [
-        const Center(child: NotifilterLogo(size: 64)),
+        const Center(child: PrioLogo(size: 64)),
         const SizedBox(height: SereneFocusSpacing.lg),
         settingsAsync.when(
           loading: () => const SizedBox.shrink(),
@@ -94,7 +94,7 @@ class SettingsScreen extends ConsumerWidget {
           tiles: const [
             ListTile(
               leading: Icon(Icons.info_outline),
-              title: Text('Notifilter'),
+              title: Text('Prio'),
               subtitle: Text('Versão 1.0.0 — plano gratuito'),
             ),
           ],

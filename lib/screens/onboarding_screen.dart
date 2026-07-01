@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/theme/serene_focus_spacing.dart';
 import '../providers/app_providers.dart';
-import '../widgets/notifilter_logo.dart';
+import '../widgets/prio_logo.dart';
 import '../widgets/serene/serene_card.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -49,14 +49,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: const NotifilterLogo(size: 32, showLabel: true),
+        title: const PrioLogo(size: 32, showLabel: true),
       ),
       body: Padding(
         padding: const EdgeInsets.all(SereneFocusSpacing.marginMobile),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Center(child: NotifilterLogo(size: 88)),
+            const Center(child: PrioLogo(size: 88)),
             const SizedBox(height: SereneFocusSpacing.lg),
             Text(
               'Acesso às notificações',
@@ -64,7 +64,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen>
             ),
             const SizedBox(height: SereneFocusSpacing.sm),
             Text(
-              'O Notifilter precisa de permissão de Notification Listener para '
+              'O Prio precisa de permissão de Notification Listener para '
               'filtrar e organizar alertas. Os dados ficam no dispositivo.',
               style: Theme.of(context).textTheme.bodyMedium,
             ),

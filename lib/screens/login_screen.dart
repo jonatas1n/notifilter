@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/theme/serene_focus_spacing.dart';
 import '../providers/app_providers.dart';
-import '../widgets/notifilter_logo.dart';
+import '../widgets/prio_logo.dart';
 /// Auth stub — sem backend.
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -32,7 +32,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const NotifilterLogo(size: 72),
+            const PrioLogo(size: 72),
             const SizedBox(height: SereneFocusSpacing.lg),
             TextField(
               controller: _emailController,

@@ -14,7 +14,7 @@ class NotificationInboxRepository {
 
   static Future<NotificationInboxRepository> create() async {
     final databasePath = await getDatabasesPath();
-    final path = join(databasePath, 'notifilter_inbox.db');
+    final path = join(databasePath, 'prio_inbox.db');
 
     final database = await openDatabase(
       path,
